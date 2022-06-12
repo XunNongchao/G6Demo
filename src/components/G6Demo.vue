@@ -8,90 +8,106 @@ onMounted(() => {
         nodes: [
             {
                 id: '1',
-                name: '自定义组件',
+                label: '自定义组件',
                 type: 'component',
                 x: 500,
                 y: 300,
                 inNodes: [
                     {
-                        name: 'in-1',
+                        id: 'in-1',
+                        label: 'in-1',
                         value: '-'
                     },
                     {
-                        name: 'in-2',
+                        id: 'in-2',
+                        label: 'in-2',
                         value: '-'
                     },
                     {
-                        name: 'in-3',
+                        id: 'in-3',
+                        label: 'in-3',
                         value: '-'
                     },
                     {
-                        name: 'in-4',
+                        id: 'in-4',
+                        label: 'in-4',
                         value: '-'
                     },
                     {
-                        name: 'in-5',
+                        id: 'in-5',
+                        label: 'in-5',
                         value: '-'
                     }
                 ],
                 outNodes: [
                     {
-                        name: 'out-1',
+                        id: 'out-1',
+                        label: 'out-1',
                         value: '-'
                     },
                     {
-                        name: 'out-2',
+                        id: 'out-2',
+                        label: 'out-2',
                         value: '-'
                     },
                     {
-                        name: 'out-3',
+                        id: 'out-3',
+                        label: 'out-3',
                         value: '-'
                     },
                     {
-                        name: 'out-4',
+                        id: 'out-4',
+                        label: 'out-4',
                         value: '-'
                     },
                     {
-                        name: 'out-5',
+                        id: 'out-5',
+                        label: 'out-5',
                         value: '-'
                     },
                     {
-                        name: 'out-6',
+                        id: 'out-6',
+                        label: 'out-6',
                         value: '-'
                     }
                 ],
                 outInNodes: [
                     {
-                        name: 'outIn-1',
+                        id: 'outIn-1',
+                        label: 'outIn-1',
                         value: '-'
                     }
                 ],
             },
             {
                 id: '2',
-                name: '自定义组件2',
+                label: '自定义组件2',
                 type: 'component',
                 x: 800,
                 y: 300,
                 inNodes: [
                     {
-                        name: 'in-1',
+                        id: 'in-1',
+                        label: 'in-1',
                         value: '-'
                     },
                 ],
                 outNodes: [
                     {
-                        name: 'out-1',
+                        id: 'out-1',
+                        label: 'out-1',
                         value: '-'
                     },
                     {
-                        name: 'out-2',
+                        id: 'out-2',
+                        label: 'out-2',
                         value: '-'
                     }
                 ],
                 outInNodes: [
                     {
-                        name: 'outIn-1',
+                        id: 'outIn-1',
+                        label: 'outIn-1',
                         value: '-'
                     }
                 ],

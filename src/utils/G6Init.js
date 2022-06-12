@@ -75,7 +75,7 @@ function handleNodeShape(group, nodeArr, nodeType, currentHeight) {
         });
         group.addShape('text', {
             attrs: {
-                text: item.name,
+                text: item.label,
                 fill: nodeTxtColor,
                 x: txtMarginLeft,
                 y: txtMarginTop + currentHeight
@@ -145,7 +145,7 @@ function registerThings() {
                 attrs: {
                     x: txtMarginLeft,
                     y: txtMarginTop,
-                    text: cfg.name,
+                    text: cfg.label,
                     fill: headerTxtColor,
                     cursor: 'move'
                 },
@@ -205,18 +205,38 @@ function registerThings() {
             const totalNodes = cfg.inNodes.length + cfg.outNodes.length + cfg.outInNodes.length;
             // 容器高度 = 头高 + 2*间隙高 + 点数*点高
             const containerHeight = headerHeight + 2 * spaceHeight + totalNodes * nodeHeight;
+            // 每个锚点间距
+            const realNodeHeight = (nodeHeight / 2) / containerHeight;
             // 节点左上角为[0, 0]，右下角为[1, 1]
             // 除去头尾的开始和结束
-            const start = (headerHeight + spaceHeight) / containerHeight + (nodeHeight / 2) / containerHeight
-            const end = 1 - spaceHeight / containerHeight - (nodeHeight / 2) / containerHeight
-            console.log('start', start)
-            console.log('end', end)
-            // 锚点数组 todo 输入节点右边有锚点，输出节点左边有锚点，输入输出左右均有锚点
-            const pointArr = []
-
-            return [[0, end]]
+            const start = (headerHeight + spaceHeight) / containerHeight + realNodeHeight;
+            const end = 1 - spaceHeight / containerHeight - realNodeHeight;
+            // 锚点数组 
+            // todo 输入节点左边有锚点，输出节点右边有锚点，输入输出左右均有锚点
+            const pointArr = [];
+            // 当前锚点位置
+            let current = start;
+            cfg.inNodes.forEach(item => {
+                pointArr.push([0, current]);
+                current += realNodeHeight;
+            })
+            cfg.outNodes.forEach(item => {
+                pointArr.push([1, current]);
+                current += realNodeHeight;
+            })
+            cfg.outInNodes.forEach(item => {
+                pointArr.push([0, current]);
+                pointArr.push([1, current]);
+                current += realNodeHeight;
+            })
+            console.log('pointArr', pointArr)
+            return pointArr;
         }
     });
+    // todo 设置自定义连线方式，根据组件id和节点id创建连线
+    G6.registerEdge('node-line', {
+        
+    })
 }
 
 export function graphInit() {
